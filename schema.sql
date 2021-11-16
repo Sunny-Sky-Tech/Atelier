@@ -9,47 +9,44 @@ USE QA;
 --
 -- ---
 
-DROP TABLE IF EXISTS `Answers`;
+DROP TABLE IF EXISTS `answers`;
 
-CREATE TABLE `Answers` (
+CREATE TABLE `answers` (
   `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
   `body` VARCHAR(1000) NOT NULL DEFAULT 'NULL',
   `timestamp` DATETIME NULL DEFAULT NULL,
-  `id_Groups` INTEGER NULL DEFAULT NULL,
-  `person_id` VARCHAR(20) NOT NULL DEFAULT 'NULL',
+  `question_id` INTEGER NULL DEFAULT NULL,
+  `user_id` VARCHAR(20) NOT NULL DEFAULT 'NULL',
   `email` VARCHAR(30) NOT NULL DEFAULT NULL,
   `helpfulness` INTEGER NULL DEFAULT NULL,
-  `reported` TINYINT NULL DEFAULT NULL,
-  `imageUrls` VARCHAR NULL DEFAULT NULL,
+  `reported` BOOLEAN NULL DEFAULT FALSE,
+  `image_id` VARCHAR NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 );
 
 -- ---
--- Table 'Groups'
+-- Table 'Answer Photos'
 --
 -- ---
 
-DROP TABLE IF EXISTS `Groups`;
-
-CREATE TABLE `Groups` (
-  `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
-  `id_Questions` INTEGER NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
-);
+CREATE TABLE 'answers_photos';
+'id' INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
+'answer_id' VARCHAR NULL DEFAULT NULL
+'image_url' VARCHAR NULL DEFAULT NULL
 
 -- ---
 -- Table 'Questions'
 --
 -- ---
 
-DROP TABLE IF EXISTS `Questions`;
+DROP TABLE IF EXISTS `questions`;
 
-CREATE TABLE `Questions` (
+CREATE TABLE `questions` (
   `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
-  `asker_id` VARCHAR(20) NULL DEFAULT NULL,
+  `user_id` VARCHAR(20) NULL DEFAULT NULL,
   `body` VARCHAR(200) NULL DEFAULT NULL,
   `timestamp` DATETIME NULL DEFAULT NULL,
-  `reported` TINYINT NULL DEFAULT NULL,
+  `reported` BOOLEAN NULL DEFAULT FALSE,
   `helpfulness` INTEGER NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 );
@@ -58,8 +55,9 @@ CREATE TABLE `Questions` (
 -- Foreign Keys
 -- ---
 
-ALTER TABLE `Answers` ADD FOREIGN KEY (id_Groups) REFERENCES `Groups` (`id`);
-ALTER TABLE `Groups` ADD FOREIGN KEY (id_Questions) REFERENCES `Questions` (`id`);
+ALTER TABLE `answers` ADD FOREIGN KEY (question_id) REFERENCES `questions` (`id`);
+ALTER TABLE `answers` ADD FOREIGN KEY (image_id) REFERENCES `answer_photos` (`id`);
+ALTER TABLE `answer_photos` ADD FOREIGN KEY (answer_id) REFERENCES `answer` (`id`);
 
 -- ---
 -- Test Data
