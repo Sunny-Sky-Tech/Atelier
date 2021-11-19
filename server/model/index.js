@@ -13,19 +13,6 @@ const db = require('../../db').connection
 
 
 module.exports = {
-  // get: function (err, res) {
-  //   db.query(
-  //     'SELECT * FROM `groceries`',
-  //     function(err, results, fields) {
-  //       if (err) {
-  //         console.log(err);
-  //         res.sendStatus(500);
-  //       } else {
-  //         console.log(results)
-  //         res.send(results)
-  //       }
-  //     }
-  //   )
 
   getQuestions: function (callback) {
     // var queryStr = 'SELECT * FROM `groceries`';
@@ -33,20 +20,20 @@ module.exports = {
     //   // console.log(err)
     //   callback(null, results)
     // })
- },
+  },
 
-postQuestion: function (params, callback) {
+  postQuestion: function (params, callback) {
 
-},
+  },
 
-addAnswer: function (params, callback) {
-}
+  addAnswer: function (params, callback) {
+  }
 
-addHelpfulQuestion: function() {
+addHelpfulQuestion: function () {
 
-}
+  }
 
-reportAnswer: function() {
+reportAnswer: function () {
 
-}
+  }
 };
