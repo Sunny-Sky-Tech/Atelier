@@ -21,19 +21,39 @@ module.exports.app = app;
 
 
 
-// root api
+// root directory
 app.get('/', (req, res) => {
   res.status(200).send('Hello World');
 })
 
 // get routes
-app.get('/qa/questions/id=:id&count=:countNum', (req, res) => {
+app.get('/qa/questions/:id&count=:count', (req, res) => {
+  console.log(req.params)
   res.status(200).send('This is a get request for the questions')
 })
 
 // post routes
+app.post('/qa/:question_id/answers', (req, res) => {
+  console.log(req.params)
+  res.status(200).send('This is a post request for the answers')
+})
+
+app.post('/qa/questions', (req, res) => {
+  console.log(req.params)
+  res.status(200).send('This is a post request for the questions')
+})
+
 
 // put routes
+app.put('/qa/:endpoint/:id/helpfulness', (req, res) => {
+  console.log(req.params)
+  res.status(200).send('This is a put request for the answers/questions helpfulness')
+})
+
+app.put('/qa/answers/report', (req, res) => {
+  console.log(req.params)
+  res.status(200).send('This is a put request for the answers report')
+})
 
 
 app.listen(port, () => {
