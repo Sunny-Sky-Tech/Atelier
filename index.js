@@ -27,8 +27,8 @@ app.get('/', (req, res) => {
 })
 
 // get routes
-app.get('/qa/questions', (req, res) => {
-  res.status(200).send('This is a get request for the questions', req.params)
+app.get('/qa/questions/id=:id&count=:countNum', (req, res) => {
+  res.status(200).send('This is a get request for the questions')
 })
 
 // post routes
