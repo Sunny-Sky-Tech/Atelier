@@ -4,49 +4,54 @@ CREATE DATABASE QA;
 
 USE QA;
 
--- ---
+-- SET FOREIGN_KEY_CHECKS=0;
+
+--
 -- Table 'Answers'
 --
--- ---
 
 DROP TABLE IF EXISTS `answers`;
 
 CREATE TABLE `answers` (
-  `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
-  `body` VARCHAR(1000) NOT NULL DEFAULT 'NULL',
-  `timestamp` DATETIME NULL DEFAULT NULL,
-  `question_id` INTEGER NULL DEFAULT NULL,
-  `user_id` VARCHAR(20) NOT NULL DEFAULT 'NULL',
-  `email` VARCHAR(30) NOT NULL DEFAULT NULL,
+  `id` INTEGER AUTO_INCREMENT NOT NULL ,
+  `question_id` BIGINT NULL DEFAULT NULL,
+  `body` VARCHAR(1000) NULL DEFAULT NULL,
+  `timestamp` BIGINT NULL DEFAULT NULL,
+  `user_id` VARCHAR(20) NULL DEFAULT NULL,
+  `email` VARCHAR(30) NULL DEFAULT NULL,
+  `reported` TINYINT NULL DEFAULT NULL,
   `helpfulness` INTEGER NULL DEFAULT NULL,
-  `reported` BOOLEAN NULL DEFAULT FALSE,
-  `image_id` VARCHAR NULL DEFAULT NULL,
+  `image_id` INTEGER NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 );
 
--- ---
+--
+
 -- Table 'Answer Photos'
 --
--- ---
 
-CREATE TABLE 'answers_photos';
-'id' INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
-'answer_id' VARCHAR NULL DEFAULT NULL
-'image_url' VARCHAR NULL DEFAULT NULL
+DROP TABLE IF EXISTS `answers_photos`;
 
--- ---
+CREATE TABLE `answers_photos` (
+`id` INTEGER AUTO_INCREMENT NOT NULL,
+`answer_id` BIGINT NULL DEFAULT NULL,
+`image_url` VARCHAR(30) NULL DEFAULT NULL,
+PRIMARY KEY (`id`)
+);
+--
 -- Table 'Questions'
 --
--- ---
 
 DROP TABLE IF EXISTS `questions`;
 
 CREATE TABLE `questions` (
-  `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
-  `user_id` VARCHAR(20) NULL DEFAULT NULL,
+  `id` INTEGER AUTO_INCREMENT NOT NULL,
+  `product_id`  BIGINT NULL DEFAULT NULL,
   `body` VARCHAR(200) NULL DEFAULT NULL,
-  `timestamp` DATETIME NULL DEFAULT NULL,
-  `reported` BOOLEAN NULL DEFAULT FALSE,
+  `timestamp` BIGINT NULL DEFAULT NULL,
+  `user` VARCHAR(20) NULL DEFAULT NULL,
+  `email` VARCHAR(30) NULL DEFAULT NULL,
+  `reported` TINYINT NULL DEFAULT NULL,
   `helpfulness` INTEGER NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 );
@@ -58,6 +63,36 @@ CREATE TABLE `questions` (
 ALTER TABLE `answers` ADD FOREIGN KEY (question_id) REFERENCES `questions` (`id`);
 ALTER TABLE `answers` ADD FOREIGN KEY (image_id) REFERENCES `answer_photos` (`id`);
 ALTER TABLE `answer_photos` ADD FOREIGN KEY (answer_id) REFERENCES `answer` (`id`);
+
+
+-- ---
+-- ETL
+-- ---
+
+--Load answers
+
+--  load data local infile '/home/shanghairen/Hack Reactor SFO138/data/answers.csv'
+--  into table answers
+--  fields terminated by ','
+--  enclosed by '"'
+--  lines terminated by '\n'
+--  ignore 1 rows;
+
+--Load questions
+--  load data local infile '/home/shanghairen/Hack Reactor SFO138/data/questions.csv'
+--  into table questions
+--  fields terminated by ','
+--  enclosed by '"'
+--  lines terminated by '\n'
+--  ignore 1 rows;
+
+--Load answer_photos
+--  load data local infile '/home/shanghairen/Hack Reactor SFO138/data/answers_photos.csv'
+--  into table answers_photos
+--  fields terminated by ','
+--  enclosed by '"'
+--  lines terminated by '\n'
+--  ignore 1 rows;
 
 -- ---
 -- Test Data
