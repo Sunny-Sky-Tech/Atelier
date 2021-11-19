@@ -1,0 +1,34 @@
+{
+  "name": "sdc",
+  "version": "1.0.0",
+  "description": "Upgrades to Loungeo QA API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://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@github.com/Sunny-Sky-Tech/Atelier-QA-API.git"
+  },
+  "author": "Khai Tran",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sunny-Sky-Tech/Atelier-QA-API/issues"
+  },
+  "homepage": "https://github.com/Sunny-Sky-Tech/Atelier-QA-API#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
+    "loglevel": "^1.8.0",
+    "mysql2": "^2.3.3",
+    "node": "^17.1.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.16.0",
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
+    "@babel/register": "^7.16.0",
+    "babel": "^6.23.0",
+    "nodemon": "^2.0.15"
+  }
+}
