@@ -14,7 +14,16 @@ const db = require('../../db').connection
 
 module.exports = {
 
-  getQuestions: function (callback) {
+  get: function (params, callback) {
+    var queryStr = `SELECT * FROM answers LIMIT 0, ?`
+    db.query(queryStr, params, (err, results) => {
+      // console.log(err)
+      if (err) {
+        callback(err)
+      } else {
+        callback(null, results)
+      }
+  })
 
   },
 
@@ -23,13 +32,13 @@ module.exports = {
   },
 
   addAnswer: function (params, callback) {
-  }
+  },
 
-addHelpfulQuestion: function () {
+  addHelpfulQuestion: function (params, callback) {
 
-  }
+  },
 
-reportAnswer: function () {
+  reportAnswer: function (params, callback) {
 
   }
 };

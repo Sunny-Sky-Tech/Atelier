@@ -3,6 +3,7 @@ const app = express()
 const port = 8080
 const db = require('./db');
 const cors = require('cors')
+const controller = require('./server/controller/index.js')
 
 
 module.exports.app = app;
@@ -27,10 +28,7 @@ app.get('/', (req, res) => {
 })
 
 // get routes
-app.get('/qa/questions/:id&count=:count', (req, res) => {
-  console.log(req.params)
-  res.status(200).send('This is a get request for the questions')
-})
+app.get('/qa/questions/:id&count=:count', controller.get)
 
 // post routes
 app.post('/qa/:question_id/answers', (req, res) => {
