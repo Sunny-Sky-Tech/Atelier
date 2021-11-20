@@ -16,7 +16,7 @@ import 'regenerator-runtime/runtime'
 
 
 describe('Space test suite', () => {
-  it('My Space Test', () => {
+  it('MySpace Test', () => {
       expect(true).toEqual(true);
   });
 });
@@ -25,7 +25,7 @@ describe('Space test suite', () => {
 const baseUrl = 'localhost:8080';
 
 describe('Questions endpoint', () => {
-	it('should return a 200 status code', async () => {
+	it('questions post request should return a 200 status code', async () => {
 		const response = await request(baseUrl)
 			.post('/qa/questions');
 
