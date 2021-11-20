@@ -15,11 +15,7 @@ const db = require('../../db').connection
 module.exports = {
 
   getQuestions: function (callback) {
-    // var queryStr = 'SELECT * FROM `groceries`';
-    // db.query(queryStr, function(err, results, fields) {
-    //   // console.log(err)
-    //   callback(null, results)
-    // })
+
   },
 
   postQuestion: function (params, callback) {
