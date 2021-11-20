@@ -4,9 +4,10 @@
   "description": "Upgrades to Loungeo QA API",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon index.js",
-    "build": "babel --delete-dir-on-start --out-dir dist --copy-files --ignore \"**/__tests__/**,**/__mocks__/**\" --no-copy-ignored"
+    "build": "babel --delete-dir-on-start --out-dir dist --copy-files --ignore \"**/__tests__/**,**/__mocks__/**\" --no-copy-ignored",
+    "test": "jest --detectOpenHandles",
+    "test:watch": "jest --watch"
   },
   "repository": {
     "type": "git",
@@ -24,7 +25,8 @@
     "express-async-errors": "^3.1.1",
     "loglevel": "^1.8.0",
     "mysql2": "^2.3.3",
-    "node": "^17.1.0"
+    "node": "^17.1.0",
+    "regenerator-runtime": "^0.13.9"
   },
   "devDependencies": {
     "@babel/cli": "^7.16.0",
@@ -33,6 +35,7 @@
     "@babel/register": "^7.16.0",
     "babel": "^6.23.0",
     "jest": "^27.3.1",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "supertest": "^6.1.6"
   }
 }

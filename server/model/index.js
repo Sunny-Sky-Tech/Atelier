@@ -14,7 +14,7 @@ const db = require('../../db').connection
 
 module.exports = {
 
-  get: function (params, callback) {
+  getQuestions: function (params, callback) {
     var queryStr = `SELECT * FROM answers LIMIT 0, ?`
     db.query(queryStr, params, (err, results) => {
       // console.log(err)
@@ -27,8 +27,16 @@ module.exports = {
 
   },
 
-  postQuestion: function (params, callback) {
-
+  postAnswers: function (params, callback) {
+    var queryStr = `INSERT INTO groceries (item, quantity) VALUES(?, ?)`
+    db.query(queryStr, params, (err) => {
+        // console.log(err)
+        if (err) {
+          callback(err)
+        } else {
+          callback(null)
+        }
+    })
   },
 
   addAnswer: function (params, callback) {
