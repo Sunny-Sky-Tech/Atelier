@@ -5,7 +5,7 @@ module.exports = {
   getQuestions: function (req, res) {
     params = [Number(req.params.count)]
     console.log(req.params)
-    model.get(params, function (err, results, fields) {
+    model.getQuestions(params, function (err, results, fields) {
       if (err) {
         console.log(err)
         res.sendStatus(500);
