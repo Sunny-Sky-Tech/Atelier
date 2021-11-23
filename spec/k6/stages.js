@@ -10,7 +10,7 @@ export const options = {
 };
 
 export default function () {
-  const res = http.get('localhost:8080/qa/questions/1$count=5');
+  const res = http.get('http://localhost:8080/qa/questions/id&count=5');
   check(res, { 'status was 200': (r) => r.status == 200 });
   sleep(1);
 }
