@@ -44,6 +44,10 @@ app.get('/', (req, res) => {
   res.status(200).send('Hello World');
 })
 
+app.get('/loaderio-f3bda7ba996bd0bc4d0c5869eab72065.html', (req, res) => {
+  res.status(200).send();
+})
+
 // get routes
 app.get('/qa/questions/:id&count=:count', controller.getQuestions)
 

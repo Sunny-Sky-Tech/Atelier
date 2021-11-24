@@ -28,7 +28,7 @@ module.exports = {
   },
 
   postAnswers: function (params, callback) {
-    var queryStr = `INSERT INTO groceries (item, quantity) VALUES(?, ?)`
+    var queryStr = `INSERT INTO questions`
     db.query(queryStr, params, (err) => {
         // console.log(err)
         if (err) {
