@@ -7,7 +7,6 @@ const request = require('supertest')
 // const request = supertest(app)
 import 'regenerator-runtime/runtime'
 
-
 // Initial test for Jest
 
 // it('Testing to see if Jest works', () => {
@@ -34,11 +33,11 @@ describe('Homepage endpoint works', () => {
 const baseUrl = 'localhost:8080';
 
 describe('Questions endpoint', () => {
-	it('questions post request should return a 200 status code', async () => {
+	it('empty questions post request should return a 500 status code', async () => {
 		const response = await request(baseUrl)
 			.post('/qa/questions');
 
-		expect(response.statusCode).toBe(200);
+		expect(response.statusCode).toBe(500);
 	});
 
 	it('questions get request for specific questions should return a 200 status code', async () => {
@@ -53,14 +52,5 @@ describe('Questions endpoint', () => {
 			.get('/qa/questions/w');
 
 		expect(response.statusCode).toBe(404);
-	});
-});
-
-describe('Post', () => {
-	it('post questions should be 200 status code', async () => {
-		const response = await request(baseUrl)
-			.post('/qa/questions');
-
-		expect(response.statusCode).toBe(200);
 	});
 });
