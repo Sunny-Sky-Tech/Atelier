@@ -44,8 +44,8 @@ app.get('/', (req, res) => {
   res.status(200).send('Hello World');
 })
 
-app.get('/loaderio-f3bda7ba996bd0bc4d0c5869eab72065.html', (req, res) => {
-  res.status(200).send();
+app.get('/loaderio-d2c23ced033654f3a129eee2f523891a', (req, res) => {
+  res.status(200).send('loaderio-d2c23ced033654f3a129eee2f523891a');
 })
 
 // get routes
