@@ -33,12 +33,13 @@ describe('Homepage endpoint works', () => {
 const baseUrl = 'localhost:8080';
 
 describe('Questions endpoint', () => {
-	it('empty questions post request should return a 500 status code', async () => {
+	it('post request to questions should return a 201 status code', async () => {
 		const response = await request(baseUrl)
 			.post('/qa/questions');
 
-		expect(response.statusCode).toBe(500);
+		expect(response.statusCode).toBe(201);
 	});
+
 
 	it('questions get request for specific questions should return a 200 status code', async () => {
 		const response = await request(baseUrl)
