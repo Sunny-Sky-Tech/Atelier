@@ -23,7 +23,7 @@ module.exports = {
   postQuestion: function (req, res) {
     console.log(req.body)
     // res.status(200).send('This question post request is working')
-    params = [ req.body[0]['body'], req.body[0]['name'], req.body[0]['email'], req.body[0]['product_id']]
+    params = [ req.body['body'], req.body['name'], req.body['email'], req.body['product_id']]
     model.postQuestion(params, function(err, results, fields) {
       if (err) {
         console.log(err)
