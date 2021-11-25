@@ -21,7 +21,16 @@ module.exports = {
   },
 
   postQuestion: function (req, res) {
-    console.log(req.params)
-    res.status(200).send('This question post request is working')
+    console.log(req.body)
+    // res.status(200).send('This question post request is working')
+    params = [ req.body[0]['body'], req.body[0]['name'], req.body[0]['email'], req.body[0]['product_id']]
+    model.postQuestion(params, function(err, results, fields) {
+      if (err) {
+        console.log(err)
+        res.status(500)
+      } else
+      console.log("Post request succeeded", params)
+      res.status(201).send("Post request succeeded")
+    })
   }
 }

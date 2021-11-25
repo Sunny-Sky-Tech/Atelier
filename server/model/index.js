@@ -27,8 +27,8 @@ module.exports = {
 
   },
 
-  postAnswers: function (params, callback) {
-    var queryStr = `INSERT INTO questions`
+  postQuestion: function (params, callback) {
+    var queryStr = `INSERT INTO questions (body, user, email, product_id) VALUES (?, ?, ?, ?)`
     db.query(queryStr, params, (err) => {
         // console.log(err)
         if (err) {

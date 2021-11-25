@@ -40,22 +40,27 @@ describe('Questions endpoint', () => {
 
 		expect(response.statusCode).toBe(200);
 	});
-});
 
-describe('Questions get endpoint', () => {
 	it('questions get request for specific questions should return a 200 status code', async () => {
 		const response = await request(baseUrl)
 			.get('/qa/questions/1&count=2');
 
 		expect(response.statusCode).toBe(200);
 	});
-});
 
-describe('Questions get endpoint', () => {
 	it('questions get request without params should fail', async () => {
 		const response = await request(baseUrl)
 			.get('/qa/questions/w');
 
 		expect(response.statusCode).toBe(404);
+	});
+});
+
+describe('Post', () => {
+	it('post questions should be 200 status code', async () => {
+		const response = await request(baseUrl)
+			.post('/qa/questions');
+
+		expect(response.statusCode).toBe(200);
 	});
 });
