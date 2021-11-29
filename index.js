@@ -57,17 +57,6 @@ app.post('/qa/:question_id/answers', controller.postAnswers)
 app.post('/qa/questions', controller.postQuestion)
 
 
-// put routes
-app.put('/qa/:endpoint/:id/helpfulness', (req, res) => {
-
-})
-
-app.put('/qa/answers/report', (req, res) => {
-  console.log(req.params)
-  res.status(200).send('This is a put request for the answers report')
-})
-
-
 app.listen(port, () => {
   console.log(`This app is listening at http://localhost:${port}`)
 })

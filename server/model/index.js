@@ -37,16 +37,5 @@ module.exports = {
           callback(null)
         }
     })
-  },
-
-  addAnswer: function (params, callback) {
-  },
-
-  addHelpfulQuestion: function (params, callback) {
-
-  },
-
-  reportAnswer: function (params, callback) {
-
   }
 };
