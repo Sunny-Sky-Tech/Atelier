@@ -1,11 +1,23 @@
 import http from 'k6/http';
 import { sleep } from 'k6';
 
-export const options = {
-  vus: 100,
-  duration: '30s',
-};
+// export const options = {
+//   vus: 600,
+//   duration: '30s',
+// };
 
+export const options = {
+  scenarios: {
+    constant_request_rate: {
+      executor: 'constant-arrival-rate',
+      rate: 10,
+      timeUnit: '1s',
+      duration: '1m',
+      preAllocatedVUs: 20,
+      maxVUs: 500,
+    },
+  },
+};
 
 const random1 = Math.round((Math.random() * (1000011 - 1)) + 1)
 const random2 = Math.round((Math.random() * (1000011 - 1)) + 1)
