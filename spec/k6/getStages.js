@@ -13,8 +13,8 @@ export const options = {
 
 
 
-const randomID = Math.round((Math.random() * (1000000)) + 1)
-const randomCount = Math.round((Math.random() * (1000000)) + 1)
+const randomID = Math.round((Math.random() * (10000)) + 1)
+const randomCount = Math.round((Math.random() * (10000)) + 1)
 export default function () {
   const res = http.get(`http://localhost:8080/qa/questions/${randomID}&count=${randomCount}`);
   check(res, { 'status was 200': (r) => r.status == 200 });

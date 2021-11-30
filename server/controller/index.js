@@ -3,7 +3,8 @@ const model = require('../model/index.js')
 
 module.exports = {
   getQuestions: function (req, res) {
-    params = [Number(req.params.count)]
+    params = [Number(req.params.id), Number(req.params.count)]
+    // console.log(req.params)
     model.getQuestions(params, function (err, results, fields) {
       if (err) {
         res.status(500).send(err);

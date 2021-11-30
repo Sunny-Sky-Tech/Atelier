@@ -8,13 +8,37 @@ import { sleep } from 'k6';
 
 export const options = {
   scenarios: {
-    constant_request_rate: {
+    // constant_request_rate_1: {
+    //   executor: 'constant-arrival-rate',
+    //   rate: 1,
+    //   timeUnit: '1s',
+    //   duration: '1m',
+    //   preAllocatedVUs: 20,
+    //   maxVUs: 500,
+    // },
+    // constant_request_rate_10: {
+    //   executor: 'constant-arrival-rate',
+    //   rate: 10,
+    //   timeUnit: '1s',
+    //   duration: '1m',
+    //   preAllocatedVUs: 20,
+    //   maxVUs: 500,
+    // },
+    // constant_request_rate_100: {
+    //   executor: 'constant-arrival-rate',
+    //   rate: 100,
+    //   timeUnit: '1s',
+    //   duration: '1m',
+    //   preAllocatedVUs: 20,
+    //   maxVUs: 500,
+    // },
+    constant_request_rate_1000: {
       executor: 'constant-arrival-rate',
-      rate: 10,
+      rate: 1000,
       timeUnit: '1s',
       duration: '1m',
-      preAllocatedVUs: 20,
-      maxVUs: 500,
+      preAllocatedVUs: 500,
+      maxVUs: 2000,
     },
   },
 };
@@ -22,7 +46,7 @@ export const options = {
 const random1 = Math.round((Math.random() * (1000011 - 1)) + 1)
 const random2 = Math.round((Math.random() * (1000011 - 1)) + 1)
 export default function () {
-  http.get(`http://localhost:8080/qa/questions/${random1}&count=${random2}`);
+  http.get(`http://localhost:8080/qa/questions/1&count=5`);
   sleep(1);
 }
 
