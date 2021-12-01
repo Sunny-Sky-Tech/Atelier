@@ -65,34 +65,35 @@ ALTER TABLE `answers` ADD FOREIGN KEY (image_id) REFERENCES `answer_photos` (`id
 ALTER TABLE `answer_photos` ADD FOREIGN KEY (answer_id) REFERENCES `answer` (`id`);
 
 
+
 -- ---
 -- ETL
 -- ---
 
---Load answers
+-- LOAD `answers`
 
---  load data local infile '/home/shanghairen/Hack Reactor SFO138/data/answers.csv'
---  into table answers
---  fields terminated by ','
---  enclosed by '"'
---  lines terminated by '\n'
---  ignore 1 rows;
+ LOAD DATA LOCAL INFILE '/home/shanghairen/Hack Reactor SFO138/data/answers.csv'
+ INTO TABLE `answers`
+ FIELDS TERMINATED BY ','
+ ENCLOSED BY '"'
+ LINES TERMINATED BY '\n'
+ IGNORE 1 ROWS;
 
---Load questions
---  load data local infile '/home/shanghairen/Hack Reactor SFO138/data/questions.csv'
---  into table questions
---  fields terminated by ','
---  enclosed by '"'
---  lines terminated by '\n'
---  ignore 1 rows;
+-- Load `questions`
+ LOAD DATA LOCAL INFILE '/home/shanghairen/Hack Reactor SFO138/data/questions.csv'
+ INTO TABLE `questions`
+ FIELDS TERMINATED BY ','
+ ENCLOSED BY '"'
+ LINES TERMINATED BY '\n'
+ IGNORE 1 ROWS;
 
---Load answer_photos
---  load data local infile '/home/shanghairen/Hack Reactor SFO138/data/answers_photos.csv'
---  into table answers_photos
---  fields terminated by ','
---  enclosed by '"'
---  lines terminated by '\n'
---  ignore 1 rows;
+-- Load `answer_photos`
+ LOAD DATA LOCAL INFILE '/home/shanghairen/Hack Reactor SFO138/data/answers_photos.csv'
+ INTO TABLE `answers_photos`
+ FIELDS TERMINATED BY ','
+ ENCLOSED BY '"'
+ LINES TERMINATED BY '\n'
+ IGNORE 1 ROWS;
 
 -- ---
 -- Test Data

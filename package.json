@@ -1,0 +1,43 @@
+{
+  "name": "sdc",
+  "version": "1.0.0",
+  "description": "Upgrades to Loungeo QA API",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "start:prod": "NODE_ENV=prod nodemon index.js",
+    "build": "babel --delete-dir-on-start --out-dir dist --copy-files --ignore \"**/__tests__/**,**/__mocks__/**\" --no-copy-ignored",
+    "test": "jest --detectOpenHandles",
+    "test:watch": "jest --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://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@github.com/Sunny-Sky-Tech/Atelier-QA-API.git"
+  },
+  "author": "Khai Tran",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sunny-Sky-Tech/Atelier-QA-API/issues"
+  },
+  "homepage": "https://github.com/Sunny-Sky-Tech/Atelier-QA-API#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
+    "loaderio": "^0.0.3",
+    "loglevel": "^1.8.0",
+    "mysql2": "^2.3.3",
+    "node": "^17.1.0",
+    "regenerator-runtime": "^0.13.9"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.16.0",
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
+    "@babel/register": "^7.16.0",
+    "babel": "^6.23.0",
+    "jest": "^27.3.1",
+    "nodemon": "^2.0.15",
+    "supertest": "^6.1.6"
+  }
+}
