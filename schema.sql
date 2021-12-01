@@ -65,34 +65,35 @@ ALTER TABLE `answers` ADD FOREIGN KEY (image_id) REFERENCES `answer_photos` (`id
 ALTER TABLE `answer_photos` ADD FOREIGN KEY (answer_id) REFERENCES `answer` (`id`);
 
 
+
 -- ---
 -- ETL
 -- ---
 
---LOAD `answers`
+-- LOAD `answers`
 
---  LOAD DATA LOCAL INFILE '/home/shanghairen/Hack Reactor SFO138/data/answers.csv'
---  INTO TABLE `answers`
---  FIELDS TERMINATED BY ','
---  ENCLOSED BY '"'
---  LINES TERMINATED BY '\n'
---  IGNORE 1 ROWS;
+ LOAD DATA LOCAL INFILE '/home/shanghairen/Hack Reactor SFO138/data/answers.csv'
+ INTO TABLE `answers`
+ FIELDS TERMINATED BY ','
+ ENCLOSED BY '"'
+ LINES TERMINATED BY '\n'
+ IGNORE 1 ROWS;
 
---Load `questions`
---  LOAD DATA LOCAL INFILE '/home/shanghairen/Hack Reactor SFO138/data/questions.csv'
---  INTO TABLE `questions`
---  FIELDS TERMINATED BY ','
---  ENCLOSED BY '"'
---  LINES TERMINATED BY '\n'
---  IGNORE 1 ROWS;
+-- Load `questions`
+ LOAD DATA LOCAL INFILE '/home/shanghairen/Hack Reactor SFO138/data/questions.csv'
+ INTO TABLE `questions`
+ FIELDS TERMINATED BY ','
+ ENCLOSED BY '"'
+ LINES TERMINATED BY '\n'
+ IGNORE 1 ROWS;
 
---Load `answer_photos`
---  LOAD DATA LOCAL INFILE '/home/shanghairen/Hack Reactor SFO138/data/answers_photos.csv'
---  INTO TABLE `answers_photos`
---  FIELDS TERMINATED BY ','
---  ENCLOSED BY '"'
---  LINES TERMINATED BY '\n'
---  IGNORE 1 ROWS;
+-- Load `answer_photos`
+ LOAD DATA LOCAL INFILE '/home/shanghairen/Hack Reactor SFO138/data/answers_photos.csv'
+ INTO TABLE `answers_photos`
+ FIELDS TERMINATED BY ','
+ ENCLOSED BY '"'
+ LINES TERMINATED BY '\n'
+ IGNORE 1 ROWS;
 
 -- ---
 -- Test Data
