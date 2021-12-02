@@ -44,9 +44,16 @@ app.get('/', (req, res) => {
   res.status(200).send('Hello World');
 })
 
+// Origional Instance Loader.IO
 app.get('/loaderio-4f12d79a4bf05208e4b9494d0bb58d32', (req, res) => {
   res.status(200).send('loaderio-4f12d79a4bf05208e4b9494d0bb58d32');
 })
+
+// Load Balancer Loader.IO
+app.get('/loaderio-a2c462ad9b220e0977e5f317eb4bd2bd', (req, res) => {
+  res.status(200).send('loaderio-a2c462ad9b220e0977e5f317eb4bd2bd');
+})
+
 
 // get routes
 app.get('/qa/questions/:id&count=:count', controller.getQuestions)
